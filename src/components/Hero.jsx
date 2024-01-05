@@ -1,6 +1,7 @@
 import React from "react";
 // import Typed from "react-typed";
-import Typewriter from "typewriter-effect";
+// import Typewriter from "typewriter-effect";
+import { TypeAnimation } from "react-type-animation";
 
 const Hero = () => {
   return (
@@ -16,13 +17,20 @@ const Hero = () => {
           <p className="md:text-5xl sm:text-4xl text-xl font-bold py-4">
             Fast, flexible financing for
           </p>
-          <Typewriter
-            className="md:text-5xl sm:text-4xl text-xl font-bold md:pl-4 pl-2"
-            options={{
-              strings: ["BTB", "BTC", "SASS"],
-              autoStart: true,
-              loop: true,
-            }}
+          <TypeAnimation
+            sequence={[
+              // Same substring at the start will only be typed out once, initially
+              "BTB",
+              2000, // wait 1s before replacing "Mice" with "Hamsters"
+              "BTC",
+              2000,
+              "SASS",
+              2000,
+            ]}
+            wrapper="span"
+            speed={50}
+            repeat={Infinity}
+            className="text-xl font-bold ml-2 sm:text-4xl sm:ml-4 md:text-5xl"
           />
         </div>
         <p className="md:text-2xl text-xl font-bold text-gray-500">
